@@ -42,9 +42,11 @@
         </div>
 
         <div class="mt-6 flex flex-col items-center w-full">
-            <div class="bg-white p-1 border-2 border-black mb-2">
-                <img src="{{ asset('storage/' . $vehicle->qr_code_path) }}" class="w-28 h-28">
-            </div>
+            <div class="qr-code-wrapper" style="text-align: center; margin: 10px;">
+    <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->merge(public_path('images/logo.png'), .3, true)->size(500)->errorCorrection('H')->generate(route('vehicles.public.show', $vehicle->id))) }}" 
+         style="width: 150px; height: 150px;" 
+         alt="QR Code Veicolo">
+</div>
             <p class="font-black text-[11px] uppercase text-center text-black leading-tight px-2">
                 SCANSIONA PER STATO LIVE E DOCUMENTI
             </p>

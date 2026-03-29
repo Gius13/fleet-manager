@@ -6,6 +6,7 @@ use App\Models\Setting;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,9 +23,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+	URL::forceRootUrl('https://fleetmanager.edil2costruzioni.it');
+	URL::forceScheme('https');
         // Controlliamo che la tabella settings esista per evitare errori al primo avvio
-        if (Schema::hasTable('settings')) {
-            
+        if (Schema::hasTable('settings')){            
             // Recuperiamo l'unico record delle impostazioni
             $mailSettings = Setting::where('key', 'notification_email')->first();
 

@@ -83,8 +83,9 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-center">
                                             @if($vehicle->qr_code_path)
                                                 <a href="{{ route('vehicles.label', $vehicle->id) }}" target="_blank" class="inline-block">
-                                                    <img src="{{ asset('storage/' . $vehicle->qr_code_path) }}" 
-                                                         class="w-16 h-16 mx-auto border dark:border-gray-600 bg-white p-1 rounded shadow-sm hover:opacity-80 transition-opacity">
+                                                    <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->merge(public_path('images/logo.png'), .3, true)->size(100)->generate(route('vehicles.public.show', $vehicle->id))) }}"
+                                                         style="width: 80px; height: 80px;"
+                                                         alt="QR Code">
                                                 </a>
                                             @else
                                                 <span class="text-gray-400 text-xs italic">No QR</span>

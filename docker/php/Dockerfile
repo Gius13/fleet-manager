@@ -15,6 +15,10 @@ RUN pecl install redis && docker-php-ext-enable redis
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+RUN apt-get update && apt-get install -y \
+    libmagickwand-dev \
+    && pecl install imagick \
+    && docker-php-ext-enable imagick
 
 # Install Node.js e npm
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \

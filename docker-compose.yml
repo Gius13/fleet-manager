@@ -36,10 +36,10 @@ services:
     container_name: fleet_db
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_USER: ${DB_USERNAME}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: lavarel
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: lavarel}
+      MYSQL_PASSWORD: lavarel
     volumes:
       - db_data:/var/lib/mysql
     networks:
