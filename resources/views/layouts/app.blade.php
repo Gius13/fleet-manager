@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-      x-data="{ theme: localStorage.getItem('theme') || 'light' }"
+      x-data="{ theme: localStorage.getItem('theme') || 'dark' }"
       x-init="$watch('theme', val => localStorage.setItem('theme', val))"
       x-bind:class="theme === 'dark' ? 'dark' : ''">
     <head>
