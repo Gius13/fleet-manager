@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use SimpleSoftwareIO\QrCode\Facades\QrCode; // Necessario per i QR
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class VehicleController extends Controller
 {
@@ -69,7 +69,11 @@ class VehicleController extends Controller
      */
     public function showPublic(Vehicle $vehicle)
     {
-        // Carica solo i dati necessari per la scansione rapida
+        // Carica i dati del veicolo e lo storico manutenzioni ordinate per data decrescente
+        $vehicle->load(['maintenances' => function($query) {
+            $query->orderBy('date', 'desc');
+        }]);
+
         return view('vehicles.public-show', compact('vehicle'));
     }
 
@@ -78,7 +82,11 @@ class VehicleController extends Controller
      */
     public function show(Vehicle $vehicle)
     {
-        $vehicle->load('maintenances');
+        // Anche qui per l'admin ordiniamo le manutenzioni per data
+        $vehicle->load(['maintenances' => function($query) {
+            $query->orderBy('date', 'desc');
+        }]);
+        
         return view('vehicles.show', compact('vehicle'));
     }
 
