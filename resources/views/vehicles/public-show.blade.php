@@ -120,14 +120,6 @@
                                             @endif
                                         </div>
                                     </div>
-
-                                    @if($maintenance->cost)
-                                        <div class="shrink-0 bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-lg border dark:border-gray-600">
-                                            <span class="text-sm font-black text-purple-700 dark:text-purple-400">
-                                                € {{ number_format($maintenance->cost, 2, ',', '.') }}
-                                            </span>
-                                        </div>
-                                    @endif
                                 </div>
 
                                 @if($maintenance->description)
