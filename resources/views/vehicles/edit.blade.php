@@ -54,7 +54,7 @@
                                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414A2 2 0 0016.414 5L14 2.586A2 2 0 0012.586 2H9z"></path></svg>
                                     PDF Caricato
                                 </span>
-                                <a href="{{ asset('storage/' . $vehicle->circulation_card_path) }}" target="_blank" class="text-blue-600 dark:text-blue-400 text-sm underline hover:no-underline">Apri file</a>
+                                <a href="{{ route('vehicles.card.download', $vehicle->id) }}" target="_blank" class="text-blue-600 dark:text-blue-400 text-sm underline hover:no-underline">Apri file</a>
                             </div>
                         @endif
                         <input type="file" name="circulation_card" accept="application/pdf" class="block w-full text-sm text-gray-500 dark:text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 dark:file:bg-blue-900 dark:file:text-blue-300 hover:file:bg-blue-100">

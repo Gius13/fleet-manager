@@ -95,7 +95,7 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-xs font-bold">
                                             <div class="flex justify-end items-center gap-3 uppercase tracking-tighter">
                                                 @if($vehicle->circulation_card_path)
-                                                    <a href="{{ asset('storage/' . $vehicle->circulation_card_path) }}" target="_blank" class="text-teal-600 dark:text-teal-400 hover:underline">Carta di Circolazione</a>
+                                                    <a href="{{ route('vehicles.card.download', $vehicle->id) }}" target="_blank" class="text-teal-600 dark:text-teal-400 hover:underline">Carta di Circolazione</a>
                                                     <span class="text-gray-300 dark:text-gray-600">|</span>
                                                 @endif
 
