@@ -24,4 +24,7 @@ RUN apt-get update && apt-get install -y \
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs
 
+COPY docker/php/local.ini /usr/local/etc/php/conf.d/99-uploads.ini
+
+
 WORKDIR /var/www
